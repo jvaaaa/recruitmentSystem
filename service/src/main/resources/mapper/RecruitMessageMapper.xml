@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xm.recruitmentsystem.mapper.RecruitMessageMapper">
+
+    <resultMap id="recruitMessageWithCompany" type="RecruitMessage">
+        <id column="id" property="id"/>
+        <result column="profession" property="profession"/>
+        <result column="min_person_num" property="minPersonNum"/>
+        <result column="max_person_num" property="maxPersonNum"/>
+        <result column="salary" property="salary"/>
+        <result column="detail" property="detail"/>
+        <association property="company" javaType="company">
+            <id column="company_id" property="id"/>
+            <result column="company_Name" property="companyName"/>
+            <result column="address" property="address"/>
+        </association>
+    </resultMap>
+
+    <!--RecruitMessage getOneById(Integer id);-->
+    <select id="getOneById" resultMap="recruitMessageWithCompany">
+        select * from t_recruitmessage,t_company where t_recruitmessage.id = #{id} and t_recruitmessage.company_id = t_company.id
+    </select>
+
+
+</mapper>

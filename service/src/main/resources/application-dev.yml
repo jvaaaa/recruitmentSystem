@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+#mybatis-plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-handlers-package: com.xm.typehander
+  type-aliases-package: com.xm.model
+
+spring:
+  #mysql
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/recruitmentSystem
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  #jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+weixin:
+  jscode2sessionUrl: https://api.weixin.qq.com/sns/jscode2session
+  appid: wx47cbc2f4f9b9a55f
+  secret: 8f9d645ea09db16a274c99182aa108da
+

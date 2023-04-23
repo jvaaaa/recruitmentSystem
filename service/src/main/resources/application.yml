@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: recruitmentSystem
+  profiles:
+    active: dev
